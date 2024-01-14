@@ -32,16 +32,6 @@
     <form method="post" action="/logout">
         <button class="btn btn-sm btn-danger btn-block" type="submit" id="logout_btn">로그아웃</button>
     </form>
-
-    <script>
-        const loginId = document.getElementById('login_id');
-        loginId.innerHTML = sessionStorage.getItem('userid');
-
-        const logoutBtn = document.getElementById('logout_btn');
-        logoutBtn.addEventListener('click', () => {
-            sessionStorage.setItem('userid', '');
-        });
-    </script>
 </div>
 </body>
 </html>

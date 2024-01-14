@@ -33,14 +33,6 @@
     <form class="form-signin" method="get" action="/view/join">
         <button class="btn btn-lg btn-warning btn-block" type="submit">회원가입하기</button>
     </form>
-
-    <script>
-        const loginBtn = document.getElementById('login_btn');
-
-        loginBtn.addEventListener('click', () => {
-            sessionStorage.setItem('userid', document.getElementById('username').value);
-        });
-    </script>
 </div>
 </body>
 </html>
