@@ -1,5 +1,6 @@
 package com.nahwasa.springsecuritybasicsettingforspringboot3.controller;
 
+import com.nahwasa.springsecuritybasicsettingforspringboot3.config.CustomAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import static com.nahwasa.springsecuritybasicsettingforspringboot3.config.CustomAuthorize.*;
 
 @Controller
 @RequestMapping("/view")
@@ -30,13 +33,13 @@ public class ViewController {
     }
 
     @GetMapping("/setting/admin")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @AdminAuthorize
     public String adminSettingPage() {
         return "admin_setting";
     }
 
     @GetMapping("/setting/user")
-    @PreAuthorize("hasAnyRole('USER')")
+    @UserAuthorize
     public String userSettingPage() {
         return "user_setting";
     }
