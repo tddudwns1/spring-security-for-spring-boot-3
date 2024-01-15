@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static jakarta.persistence.GenerationType.*;
 import static lombok.AccessLevel.*;
@@ -23,7 +24,7 @@ public class Member {
 
     private String roles;
 
-    public static Member createUser(String userId, String pw) {
-        return new Member(null, userId, pw, "USER");
+    public static Member createUser(String userId, String pw, PasswordEncoder passwordEncoder) {
+        return new Member(null, userId, passwordEncoder.encode(pw), "USER");
     }
 }
